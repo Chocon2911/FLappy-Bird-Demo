@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPhysics : HuyMonoBehaviour
+public class PlayerPhysics : HaoMonoBehaviour
 {
     [SerializeField] protected PlayerMovement playerMovement;
     public PlayerMovement PlayerMovement => playerMovement;

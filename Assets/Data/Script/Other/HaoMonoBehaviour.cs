@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class HuyMonoBehaviour : MonoBehaviour
+public abstract class HaoMonoBehaviour : MonoBehaviour
 {
 
     protected virtual void Reset()

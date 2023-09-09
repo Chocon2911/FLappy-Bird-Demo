@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MoveToLeft : HuyMonoBehaviour
+public class MoveToLeft : HaoMonoBehaviour
 {
     [SerializeField] protected BackGroundCtrl backgroundCtrl;
     public float speed = 100f;

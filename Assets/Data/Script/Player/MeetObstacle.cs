@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeetObstacle : HuyMonoBehaviour
+public class MeetObstacle : HaoMonoBehaviour
 {
     [SerializeField] protected GameManager gameManager;
 

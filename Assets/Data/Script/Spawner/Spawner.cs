@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Spawner : HuyMonoBehaviour
+public abstract class Spawner : HaoMonoBehaviour
 {
     [SerializeField] protected Transform holder;
 
@@ -49,9 +49,7 @@ public abstract class Spawner : HuyMonoBehaviour
         }
     }
 
-    //if name of obj exist by checking from GetPrefabByName(string prefabName)
-    //if yes take its name and get the position, rotation you added
-    //(no need to be position and rotation from obj with that name)
+   
     public virtual Transform Spawn(string prefabName, Vector3 spawnPos, Quaternion rotation)
     {
         Transform prefab = this.GetPrefabByName(prefabName);
@@ -64,8 +62,7 @@ public abstract class Spawner : HuyMonoBehaviour
         return this.Spawn(prefab, spawnPos, rotation);
     }
 
-    //with the name, pos, rot you had check above, set pos and rot to the obj with that name
-    //then add it to be child of Transform holder
+   
     public virtual Transform Spawn(Transform prefab, Vector3 spawnPos, Quaternion rotation)
     {
         Transform newPrefab = this.GetObjectFromPool(prefab);
@@ -76,10 +73,7 @@ public abstract class Spawner : HuyMonoBehaviour
         return newPrefab;
     }
 
-    //Check what obj you want to clone by assign it to GetObjectFromPool(...)
-    //and using its name to check if any child in List poolObjs has the same name as its
-    //if none then clone the new one
-    //if exist then clone that child and remove that child from List poolObjs
+    
     protected virtual Transform GetObjectFromPool(Transform prefab)
     {
         foreach(Transform poolObj in this.poolObjs)
@@ -95,7 +89,7 @@ public abstract class Spawner : HuyMonoBehaviour
         return newPrefab;
     }
 
-    //Despawn the obj and add to List PoolObjs by assign that obj to that empty Despawn(...)
+  
     public virtual void Despawn(Transform obj)
     {
         this.poolObjs.Add(obj);
@@ -103,7 +97,7 @@ public abstract class Spawner : HuyMonoBehaviour
         this.spawnedCount--;
     }
 
-    //Find children in List prefabs by using their names
+   
     public virtual Transform GetPrefabByName(string prefabName)
     {
         foreach (Transform prefab in this.prefabs)

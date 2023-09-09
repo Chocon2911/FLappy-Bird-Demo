@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : HuyMonoBehaviour
+public class InputManager : HaoMonoBehaviour
 {
     public float jumpHeight;
 
@@ -22,7 +22,7 @@ public class InputManager : HuyMonoBehaviour
 
     protected virtual void InputJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0)) 
         {
             this.jumpHeight = 3.5f;
             Debug.Log("InputJump");

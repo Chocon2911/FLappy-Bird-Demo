@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class BackGroundCtrl : HuyMonoBehaviour
+public class BackGroundCtrl : HaoMonoBehaviour
 {
     [SerializeField] protected Rigidbody2D rb;
     public Rigidbody2D Rb => rb;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SpawnPoint : HuyMonoBehaviour
+public abstract class SpawnPoint : HaoMonoBehaviour
 {
     [SerializeField] protected Transform spawnPoint1;
     public Transform SpawnPoint1 => spawnPoint1;

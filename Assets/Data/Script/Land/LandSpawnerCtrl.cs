@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LandSpawnerCtrl : HuyMonoBehaviour
+public class LandSpawnerCtrl : HaoMonoBehaviour
 {
     [SerializeField] protected LandSpawnPoint landSpawnPoint;
     public LandSpawnPoint LandSpawnPoint => landSpawnPoint;

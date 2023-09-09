@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(EdgeCollider2D))]
-public class PlayerCtrl : HuyMonoBehaviour
+public class PlayerCtrl : HaoMonoBehaviour
 {
     [SerializeField] protected Rigidbody2D rb;
     public Rigidbody2D Rb => rb;

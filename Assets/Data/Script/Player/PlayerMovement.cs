@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : HuyMonoBehaviour
+public class PlayerMovement : HaoMonoBehaviour
 {
     [SerializeField] protected PlayerCtrl playerCtrl;
 

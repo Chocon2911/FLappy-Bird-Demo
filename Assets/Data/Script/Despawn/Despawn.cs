@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
-public abstract class Despawn : HuyMonoBehaviour
+public abstract class Despawn : HaoMonoBehaviour
 {
     protected virtual void FixedUpdate()
     {

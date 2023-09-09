@@ -4,24 +4,36 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : HuyMonoBehaviour
+public class GameManager : HaoMonoBehaviour
 {
-    [SerializeField] protected DistanceScore distanceScore;
+  
     [SerializeField] public Transform startBackground;
     [SerializeField] public Transform gameoverBackground;
 
-    [SerializeField] protected TextMeshProUGUI distanceScoreText;
+    [SerializeField] protected TextMeshProUGUI ScoreText;
+    [SerializeField] protected TextMeshProUGUI ScoreEndText;
+    [SerializeField] protected TextMeshProUGUI HighScoreText;
+
+    private int highScore=0;
 
     protected override void Start()
     {
         base.Start();
         Time.timeScale = 0f;
+       
+        if (PlayerPrefs.HasKey("HighScore"))
+        {
+            highScore =PlayerPrefs.GetInt("HighScore");
+        }
+        
     }
 
     protected virtual void Update()
     {
-        this.DistanceScoreText();
-        this.SetScreen();
+        this.GameScoreText();
+        GameEndScoreText();
+
+
     }
 
     protected override void LoadComponent()
@@ -32,8 +44,8 @@ public class GameManager : HuyMonoBehaviour
 
     protected virtual void LoadDistanceScore()
     {
-        if (this.distanceScore != null) return;
-        this.distanceScore = GameObject.Find("DistanceCounting").GetComponent<DistanceScore>();
+       
+      
     }
 
     public virtual void PauseIsClicked()
@@ -43,7 +55,7 @@ public class GameManager : HuyMonoBehaviour
 
     public virtual void PlayButtonIsClicked()
     {
-        this.distanceScore.distanceCount = 0f;
+       
         Time.timeScale = 1f;
         startBackground.gameObject.SetActive(false);
     }
@@ -59,18 +71,27 @@ public class GameManager : HuyMonoBehaviour
         gameoverBackground.gameObject.SetActive(false);
     }
 
-    protected virtual void DistanceScoreText()
+    protected virtual void GameScoreText()
     {
-        this.distanceScoreText.text = distanceScore.distanceCount.ToString() + "m";
+        this.ScoreText.text = Score.score.ToString()+"";
+    }
+    protected virtual void GameEndScoreText()
+    {   if(Score.score >= PlayerPrefs.GetInt("HighScore"))
+        {
+            PlayerPrefs.SetInt("HighScore", Score.score);
+            highScore = PlayerPrefs.GetInt("HighScore");
+        }
+        this.ScoreEndText.text = "Diem : "+Score.score.ToString() ;
+        this.HighScoreText.text="HighScore : "+highScore.ToString() ;
+      
     }
 
     public virtual void MenuButtonIsClicked()
     {
+        Score.score = 0;
         SceneManager.LoadScene(0);
+       
     }
 
-    protected virtual void SetScreen()
-    {
-        Screen.SetResolution(540, 960, FullScreenMode.Windowed);
-    }
+    
 }

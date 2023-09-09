@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreCounting : HuyMonoBehaviour
+public class ScoreCounting : HaoMonoBehaviour
 {
-    [SerializeField] protected int score = 0;
 
-    protected void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (transform.gameObject.CompareTag("Score")) score++;
+
+        if (collision.gameObject.CompareTag("Score"))
+             Score.score++;
     }
 }
